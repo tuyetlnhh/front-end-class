@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS Flex</title>
+</head>
+
+<body>
+
+    <h2>CSS Exerices</h2>
+    <div class="exerices">
+        <div class="orange">1</div>
+        <div class="blue">2</div>
+        <div class="green">3</div>
+    </div>
+    </div>
+
+    <style>
+        .exerices {
+            display: flex;
+            height: 200px;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        .orange {
+            background-color: orange;
+            flex-basis: 100%;
+            width: 50%;
+        }
+
+        .blue {
+            background-color: blue;
+            width: 50%;
+            flex-basis: 50%;
+        }
+
+        .green {
+            background-color: green;
+            width: 50%;
+            flex-basis: 50%;
+        }
+
+
+
+        /* mobile first  */
+        @media screen and (max-width: 600px) {
+            .exerices {
+                flex-direction: row;
+            }
+
+            .orange {
+                order: 1
+            }
+
+            .blue {
+                flex-basis: 100%;
+                order: 0
+            }
+
+            .green {
+                flex-basis: 100%;
+                order: 2
+            }
+        }
+    </style>
+
+</body>
+
+</html>

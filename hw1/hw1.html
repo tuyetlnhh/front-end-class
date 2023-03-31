@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            color: rgb(158, 99, 22);
+        }
+
+        .menu {
+            position: relative;
+        }
+
+        h2 {
+            color: initial;
+
+        }
+
+        h2 {
+            color: #781010;
+
+        }
+
+        .accordion {
+            background-color: #eee;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        #accordion-checkbox:focus+.accordion {
+            background-color: #eee !important;
+        }
+
+        #accordion-checkbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+
+        }
+
+        #accordion-checkbox:hover+.accordion {
+            background-color: #444;
+        }
+
+        #accordion-checkbox:checked~.panel {
+            display: block;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Accordion</h2>
+    <div class="menu">
+        <input type="checkbox" id="accordion-checkbox">
+
+        <button class="accordion">Section 1
+        </button>
+        <div class="panel">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Saepe, sed consequuntur assumenda, rerum similique provident doloribus culpa,
+                asperiores laborum perspiciatis officia magnam! Quibusdam expedita, inventore cupiditate dicta suscipit
+                consequatur ipsa.
+            </p>
+        </div>
+    </div>
+    <div class="menu">
+        <input type="checkbox" id="accordion-checkbox">
+        <button class="accordion">Section 2
+        </button>
+        <div class="panel">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Saepe, sed consequuntur assumenda, rerum similique provident doloribus culpa,
+                asperiores laborum perspiciatis officia magnam! Quibusdam expedita, inventore cupiditate dicta suscipit
+                consequatur ipsa.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

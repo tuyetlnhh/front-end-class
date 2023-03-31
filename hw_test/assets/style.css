@@ -1,0 +1,32 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-size: 14px;
+  }
+  
+  :root {
+    --main-color: #42A7C2;
+  }
+  #header {
+    margin: 31px auto 0px auto;
+    max-width: 931px;
+    height: 127px;
+  }
+  #header .menu {
+    height: 16px;
+    overflow: hidden;
+  }
+
+  #header .menu li {
+    padding-right: 10px;
+    display: inline-block;
+ 
+  }
+  #header .menu li a {
+    font-size: 14px;
+    color: #7B7B7B;    
+  }

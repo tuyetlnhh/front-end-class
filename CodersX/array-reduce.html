@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2> Array.reduce </h2>
+    <script>
+        var orders = [
+            { name: 'A', quantity: 2, unitPrice: 100 },
+            { name: 'B', quantity: 1, unitPrice: 400 },
+            { name: 'C', quantity: 5, unitPrice: 15 },
+        ];
+        // Cach 1
+        var orderSum = orders.map(function (item) {
+            console.log(item);
+            return item.quantity * item.unitPrice;
+        });
+        console.log('test');
+        console.log(orderSum);
+
+        var result = orderSum.reduce(function (item1, item2) {
+            console.log(item1)
+            return item1 + item2
+        });
+        console.log(result);
+        // Cach 2
+        var total = orders.reduce(function (currentTotal, product) {
+            return currentTotal + product.quantity * product.unitPrice;
+        }, 0)
+    </script>
+</body>
+
+</html>

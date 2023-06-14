@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High order function</title>
+</head>
+
+<body>
+  <h2>Class javascript</h2>
+
+  <script type="text/javascript">
+    class Animal {
+      constructor(name, species) {
+        // initial value
+        this.name = name;
+        this.species = species;
+      }
+
+      // add method
+      getName() {
+        return this.name
+      }
+    }
+
+    class Dog extends Animal {
+      constructor(name) {
+        super(name)
+      }
+
+      getDogName() {
+        return this.name
+      }
+    }
+
+    class HttpRequest {
+      constructor() {
+        this.data = [];
+        this.loading = false;
+      }
+
+      get(url, options = {}) {
+        // code logic
+        this.loading = true;
+        fetch(url)
+          .then(res => res.json())
+          .then(data => {
+            this.loading = false;
+            this.data = data
+
+            console.log('this.data: ', this.data)
+          })
+          .catch(err => console.log('get err')) // spend 5s
+
+        // this.loading = false;
+      }
+      post(url) {
+        console.log('post', url)
+      }
+    }
+
+    const animal = new Animal('bu', 'dog');
+    const dog = new Dog('kiki');
+    const res = animal.getName();
+    const dogName = dog.getName();
+    console.log({ res, dog, dogName })
+
+
+    const httpRequest = new HttpRequest();
+    httpRequest.get('https://jsonplaceholder.typicode.com/todos/1')
+    /* stack & queue
+      1/ Declare the methods available for our stack:
+      push (element): add a new item to the top.
+      pop (): removes the top item.
+      peek (): only return the top element.
+      isEmpty (): return true if the stack doesn’t contain any elements, false if the size bigger than 0.
+      clear (): removes all elements.
+      size() : return the number of elements that the stack contains.
+
+      2/ Declare the methods available for our queue:
+      enqueue (element): add a new item at the top of the queue.
+      dequeue (): removes the first element from the queue.
+      front (): returns the first element from the queue.
+      isEmpty (): return true if the queue doesn’t contain any elements, false if the size bigger than 0.
+      clear (): removes all elements.
+      size() : return the number of elements that the stack contains.
+    */
+
+    class StructureData {
+      constructor() {
+        this.data = []
+      }
+
+      isEmpty() {
+        return this.data.length === 0;
+      }
+
+      clear() {
+        this.data = [];
+      }
+
+      size() {
+        return this.data.length
+      }
+    }
+
+    class Stack extends StructureData {
+      constructor() {
+        super()
+      }
+
+      push(item) {
+        this.data.push(item)
+      }
+
+      showData() {
+        console.log('stack data: ', this.data)
+      }
+    }
+
+    const stack = new Stack();
+    stack.push(2);
+    stack.push(3)
+    stack.push(5);
+    stack.showData();
+  </script>
+</body>
+
+</html>

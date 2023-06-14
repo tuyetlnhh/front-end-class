@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Arrow function</h2>
+    <script>
+        // traditional function 
+        // function getDateTime() {
+        // return Date.now()
+        // }
+
+        // arrow function
+        const getDateTime = (num) => {
+            if (num > 10) {
+                return Date.now();
+            } else if (num === 8) {
+                return 8
+            }
+            return 0
+        }
+
+        // return directly
+        const getDateTimeDirectly = () => Date.now();
+
+        console.log('Get date time: ', getDateTime(1));
+        console.log('Get date time directly: ', getDateTimeDirectly());
+
+        // no this
+        const object = {
+            firstName: 'truong',
+            lastName: 'nguyen',
+            age: 18,
+            getFirstName: function () {
+                console.log('getFirstName: ', this)
+            },
+            getLastName: () => {
+                console.log('getLastName: ', this)
+            }
+        }
+        object.getFirstName();
+        object.getLastName()
+        const getInforUser = ({
+            firstName = 'Truong',
+            lastName = 'Nguyen',
+            age = 18,
+            gender = 'male'
+        }) => {
+            return {
+                firstName,
+                lastName,
+                age,
+                gender
+            }
+        }
+        const parameterArrow = getInforUser({
+            age: 20
+        })
+        console.log('parameterArrow: ', parameterArrow)
+
+    </script>
+</body>
+
+</html>

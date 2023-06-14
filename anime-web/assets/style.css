@@ -69,6 +69,7 @@
 
   .header-icon .header-btnMenu {
     cursor: pointer;
+    display: none;
   }
   /* End header */
   
@@ -285,16 +286,4 @@
         margin-top: 50px;
         width:100%;
     }
-  }
-  @media screen and (max-width: 650px) {
-    .movies-img .comment {
-        font-size: 8px;
-      }
-      .movies-img .view {
-        font-size: 8px;
-      }
-      .movies-list .movies-info {
-        width: 45%;
-      }
-
   }

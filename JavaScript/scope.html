@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+</head>
+
+<body>
+    <script>
+        // global scope: var, let, const
+        var x = 3;
+        function multiple() {
+            var x = x * x;
+        }
+        multiple();
+        console.log('x la', x);
+
+        const triangle = 'square';
+        function sum() {
+            console.log('triangle', triangle);
+        }
+        sum();
+
+        // local/function scope: var, let, const
+        function testScopeLocal() {
+            const color = 'red'; //local variable, local/function scope
+            console.log('color: ', color)
+        }
+
+        testScopeLocal()
+
+        // block scope: let, const
+        if (1) {
+            const statement = 'statement'; //local variable, local/block scope
+            console.log('Statement: ', statement);
+        }
+        //console.log('Statement: ', statement); => Bao loi ko truy cap dc
+    </script>
+</body>
+
+</html>

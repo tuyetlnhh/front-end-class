@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Null datatype</h2>
+    <script>
+        // Convert all data type into boolean type
+        // Use Boolean() to check 
+        // Object => True
+        // số âm => true (chỉ có 0 mới ra false)
+
+
+        const isName = false;
+        const stringTest = '';
+        const nullVariable = null;
+        const undefinedVariable = undefined;
+        const numberA = 10;
+        const numberB = 'abc' //String khi ép qua number sẽ là NaN 
+
+        console.log('Truthy and falsy check: ', {
+            isName: Boolean(isName),
+            stringTest: Boolean(stringTest),
+            nullVariable: Boolean(nullVariable),
+            undefinedVariable: Boolean(undefinedVariable),
+            checkNumber: Number(numberA) == Number(numberB) //10 != NaN = false,
+        });
+        console.log('number < 0: ', Boolean(-2))
+    </script>
+
+</body>
+
+</html>

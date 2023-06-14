@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARray Reduce</title>
+</head>
+
+<body>
+  <h2>ARray Reduce</h2>
+
+  <script type="text/javascript">
+    /*
+        The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+        The reduce function takes four arguments:
+            accumulator: The accumulator accumulates callbackFn's return values.
+            currentValue: The current element being processed in the array.
+            currentIndex (optional): The index of the current element being processed in the array. Starts from index 0 if an initialValue is provided.
+            array (optional): The array reduce() was called upon.
+    */
+
+    const numbs = [10, 3, 5, 22, 42]
+    let sum = 10; // initial value
+    numbs.forEach(number => {
+      sum = sum + number;
+    })
+
+    const res = numbs.reduce((acc, currItem) => {
+      // loop1: 20 + 10 = 30
+      // loop2: 30 + 3 = 33
+      // loop3: 33 + 5 = 38
+      // ....
+      acc = acc + currItem
+      return acc;
+    }, 10)
+    console.log('res: ', { res, sum })
+
+    const carts = [
+      {
+        id: 1,
+        name: 'vegetable',
+        price: 200
+      },
+      {
+        id: 2,
+        name: 'iphone',
+        price: 400
+      },
+      {
+        id: 3,
+        name: 'samsung',
+        price: 500
+      }
+    ]
+    // output: 1100
+    const total = carts.reduce((acc, currItem) => {
+      // loop1: acc = 0  + 200 = 200
+      // loop2: acc = 200 + 400 = 600
+      // loop2: acc = 600 + 500 = 1100
+      acc = acc + currItem.price;
+      return acc;
+    }, 0)
+
+    console.log('total: ', { total })
+
+    // grouping by property
+    const people = [
+      { name: 'truong', age: 20 },
+      { name: 'linh', age: 18 },
+      { name: 'sang', age: 20 },
+      { name: 'ngoc', age: 30 },
+      { name: 'truong', age: 30 }
+    ]
+    const animals = [
+      { type: 'bird', name: 'chim en' },
+      { type: 'bird', name: 'con vet' },
+      { type: 'fish', name: 'ca moi' },
+      { type: 'fish', name: 'ca bay mau' },
+      { type: 'bo sat', name: 'ca sau' },
+    ]
+    /*
+        output: 
+        {
+            // 20: [...],
+            // 18: [ ... ],
+            // 30: [ ... ]
+            // 'truong': [ ... ],
+            // 'linh': [ ... ],
+            // 'ngoc': [ ... ]
+
+            // 'bird': [ ... ],
+            // 'fish': [ ... ],
+            // 'bo sat': [ ... ]
+            // ...
+        }
+    */
+    function groupBy(data, property) {
+      const res = data.reduce((acc, currItem) => {
+        const key = currItem[property];
+
+        if (!acc[key]) {
+          acc[key] = []
+        }
+        acc[key].push(currItem);
+        return acc
+      }, {})
+
+      return res;
+    }
+    const resGroupBy = groupBy(people, 'name')
+    console.log(resGroupBy);
+
+    const names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"];
+
+    function countItem(arr) {
+      const res = arr.reduce((acc, currItem) => {
+        const key = currItem;
+        if (!acc[key]) {
+          acc[key] = 0
+        }
+        acc[key] = acc[key] + 1;
+        return acc
+      }, {})
+
+      return res;
+    }
+    console.log('Output: ', countItem(names));
+  </script>
+</body>
+
+</html>

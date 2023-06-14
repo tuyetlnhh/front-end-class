@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+
+<body>
+    <h2>Variable</h2>
+    <script>
+        var todoText;
+        /* var
+        - The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+        - Hoisting.
+            - nó sẽ đưa các biến, function dc khai báo lên đầu file, or đầu hàm
+            - và sau đó nó sẽ gán lại giá trị
+            - có thể truy cập dc trước khi khởi tạo
+        - Allow assignment.
+        */
+        var number = 123;
+        console.log('Outside: ', number);
+
+        function sum(x) {
+            var y = 2;
+            console.log('Inside: ', number);
+            if (x > 1) {
+                y = 10
+            }
+            return x + y;
+        }
+        const resSum = sum(2);
+        console.log('Hoisting var before declare: ', todoText) //undefined
+        // var todoText = 'Learn JS';
+        todoText = 'Learn JS';
+        console.log('Hoisting var after declare: ', todoText) //Learn JS
+
+        // Mutable && Imutable
+        // Mutable là thay đổi giá trị trực tiếp của biến
+        // Thường sd imutable để kq của các function sau đó không bị
+        // ảnh hưởng nếu ta tiếp tục sd biến đó
+        var number = 2;
+        var numberA = 0;
+
+        if (true) {
+            var numberA = 4;
+        }
+        function multiple(x) {
+            return x * number;
+        }
+        const resMultiple = multiple(10);
+
+        /* let
+        - The let statement declares a block-scoped local variable, optionally initializing it to a value.
+            - Allows you to declare variables that are limited to the scope of a block statement, or expression on which it is used.
+            - The let does not create properties of the window object when declared globally (in the top-most scope). 
+        - Not hoisting.
+            - ko dc truy cập biến trước khi khởi tạo
+        - Allow assignment.
+      */
+
+        // console.log ('Before declare variable', nameBook) => error
+        let nameBook = 'JS'
+        if (true) {
+            let nameBook = 'Angular'
+            console.log('In block', nameBook) //Angular
+        }
+        console.log('After block: ', nameBook); //JS
+
+        //Const variable
+        /* const
+        - The const statement declares a block-scoped local variable.
+        - Not hoisting.
+        - Not assignment.
+        */
+        const x = 1;
+        {
+            console.log(x); // ReferenceError
+            const x = 2;
+        }
+        console.log('Before declare: ', car); //JS
+        const car = 'BMW';
+        car = 'city' //error
+        function exConst() {
+
+            const car = 'city';
+            return car;
+        }
+
+        const resCar = exConst();
+        console.log('resCar: ', resCar); //city
+        console.log('Const variable after block: ', car) //BMW
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+
+<body>
+    <h2>JSON</h2>
+    <script>
+        // JSON:  Javascript Object Notation là 1 kiểu dữ liệu gồm nhiều cặp key-value
+        // Chỉ được sử dụng ngoặc kép ko đc sử dụng ngoặc đơn
+        var myDog = {
+            name: 'Bin',
+            age: 1,
+            weight: 30
+        };
+        var myDogStr = JSON.stringify(myDog);
+        // JSON.stringify() dùng để convert object sang JSON
+        console.log('JSON myDog: ', myDogStr);
+
+        var myCatStr = '{"name": "Tom", "age": 11, "weight": 30}';
+        var myCat = JSON.parse(myCatStr);
+        // JSON.parse() dùng để convert JSON sang object
+        console.log('JSON myCat: ', myCat);
+    </script>
+</body>
+
+</html>

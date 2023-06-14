@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Null datatype</h2>
+    <script>
+        var word = null;
+        function testVowels(word) {
+            var result = word.match(/[aeoui]/gi);
+            if (result == null) {
+                return 0;
+            }
+            return result;
+        }
+        const resultVowels = testVowels('meee');
+        console.log('Vowels:', { resultVowels });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Destructuring</h2>
+    <script>
+        // unpack
+        const obj = {
+            name: 'truong',
+            firstName: 'nguyen',
+            lastName: 'nhat',
+            author: 'angular',
+            country: {
+                city: 'hcm',
+                address: 'phu nhuan',
+                ship: {
+                    numShip: '124232'
+                }
+            }
+        }
+
+        // es5
+        // const name = obj.name
+        // const age = obj.age
+
+        // es6: rename, default value
+        const { name: nameObj = 'Tin', age = 12 } = obj;
+        console.log('Destructuring: ', { name, age });
+
+        // default parameter
+        function userInfo({ name, age = '18', firstName, lastName, gender = 'female' }) {
+            console.log(' ', name.age, firstName, lastName, gender)
+            return `user info: ${name}, age: ${age}`
+        }
+
+        // merge object 
+        const newObj = {
+            ...obj,
+            gender: 'male'
+        }
+
+        const res = userInfo(newObj);
+        console.log('User info: ', { newObj, res });
+
+        //rest operator (delete 1 property in obj)
+        // delete obj.auth; deep clone JSON.parse(JSON.stringify(obj))
+        const { author, ...rest } = obj;
+        console.log('rest operator: ', { rest, obj });
+
+        // swap item 
+        let source = 1;
+        let destination = 4;
+
+        // es5
+        // let temp;
+        // temp = source;
+        // source = destination;
+        // destination= temp;
+
+        // es6
+        [source, destination] = [destination, source]
+        console.log('swap item: ', source, destination)
+
+        // ignore value with array 
+        const fruits = ['banana', 'orange', 'mango']
+        const [a, c] = fruits;
+        console.log('array destructuring: ', { a, c })
+
+        // nested object
+        // es5
+        const address = obj.country.address;
+        const numShip = obj.country.numShip;
+
+        // es6
+        const {
+            country: {
+                address: addressCountry,
+                ship: {
+                    numShip: numShipCountry
+                }
+            }
+        } = obj;
+        console.log('Nested obj: ', { address, addressCountry, numShipCountry })
+    </script>
+</body>
+
+</html>

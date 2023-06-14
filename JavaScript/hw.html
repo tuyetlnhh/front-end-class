@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getMonth(numMonth) {
+            return numMonth === 1 ? "January"
+                : numMonth === 2 ? "February"
+                    : numMonth === 3 ? "March"
+                        : numMonth === 4 ? "April"
+                            : numMonth === 5 ? "May"
+                                : numMonth === 6 ? "June"
+                                    : numMonth === 7 ? "July"
+                                        : numMonth === 8 ? "August"
+                                            : numMonth === 9 ? "September"
+                                                : numMonth === 10 ? "October"
+                                                    : numMonth === 11 ? "November"
+                                                        : numMonth === 12 ? "December"
+                                                            : "Thang khong hop le";
+        }
+        const testMonth = getMonth(0);
+        console.log(testMonth);
+    </script>
+</body>
+
+</html>

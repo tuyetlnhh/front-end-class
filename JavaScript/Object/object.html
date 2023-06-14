@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>OBJECT METHODS</h2>
+    <script>
+        const user = {
+            name: ['B', 'A'],
+            age: 6,
+            weight: 20,
+            isMale: true,
+            books: {  //nested object
+                author: 'Truong',
+                title: 'JS'
+            },
+            "like bird": true, //multiword property name
+
+            getAge: function () {  //add method
+                return this.age;
+            }
+        };
+
+        const userAge = user.getAge();
+        console.log("access method: ", userAge);
+
+        // add property name:
+        user.isAdmin = true;
+
+        const cars = {}; //empty object
+        cars.name = 'BMW' //add property name
+
+        // value shorthand
+        function makeUser(name, age) {
+            return {
+                name,
+                age,
+            }
+        }
+
+        // access property object
+        console.log("access property way1: ", user.name)
+        console.log("access property way2: ", user['name'])
+        console.log("access property way2: ", user['like bird'])
+
+        // access property with destructuring
+
+        // defined isMale property
+        const isMale = false;
+        const {
+            name,
+            age,
+            isMale: isMaleUser, //defined isMale property
+            books: {
+                title
+            }
+        } = user;
+        console.log("access destructuring title: ", { title, isMaleUser });
+        console.log("object: ", user);
+
+        // loop object
+        // using: for .. in
+        // purpose: to get the key of object
+
+        for (const key in user) {
+            console.log('for ... in get key: ', key);
+            console.log('for ... in get value: ', user[key]);
+        }
+        /* using 'in' 
+        purpose: check if property exist
+        return boolean
+        */
+
+        const keyUser = 'lastName';
+        const isExistedLastName = keyUser in user; //Biến kiểu boolean thì phải đặt is phía trước
+
+        if (!isExistedLastName) {
+            user.lastName = 'Tran';
+        }
+        console.log('in operator: ', user);
+
+        // Đếm số lượng property trong object
+        let quality = 0;
+        for (const key in user) {
+            if ((typeof user[key]) != "function") {
+                // quality += 1;  -> Ko rõ
+                quality = quality + 1;
+            }
+        }
+        console.log('Quality: ', quality);
+
+        /*
+        - using: Object.key()
+        - convert object to array
+        - array contains item is: key object
+        */
+        const userKeys = Object.keys(user);
+        console.log('Loop Object.keys(): ', userKeys);
+
+        /*
+        - using: Object.values()
+        - convert object to array
+        - array contains item is: values object
+        */
+        const userValues = Object.values(user);
+        console.log('Loop Object.values(): ', userValues);
+
+        /*
+        - using: Object.entries()
+        - convert object to array
+        - array contains item is: values and key object
+        */
+        const userEntries = Object.entries(user);
+        console.log('Loop Object.Entries(): ', userEntries);
+
+        /*
+        ordered object
+        - tự sắp xếp tăng dần nếu key property là kiểu interger
+        - nếu ko muốn auto sắp xếp thì ta add thêm '+' trong key
+        */
+
+        const code = {
+            "44": 'UK',
+            "50": 'Viet Nam',
+            "49": "Germany",
+            "1": "USA"
+        }
+        for (const keyCode in code) {
+            console.log('Ordered object integer: ', code[keyCode]);
+        }
+        // fix by adding "+"
+        const codeNoOrdered = {
+            "+44": 'UK',
+            "+50": 'Viet Nam',
+            "+49": "Germany",
+            "+1": "USA"
+        }
+        for (const keyCode in codeNoOrdered) {
+            console.log('No ordered object integer: ', codeNoOrdered[keyCode]);
+        }
+
+        // delete property
+        for (const key in user) {
+            if ((typeof user[key]) != "function") {
+                delete user[key]
+            }
+        }
+        console.log('After delete: ', user);
+
+        //copy object
+        const objectA = { // memory A
+            firstName: 'truong',
+            lastName: 'nguyen',
+            task: { // memory A-1
+                id: 1,
+                description: 'learn javascript',
+            }
+        };
+        // es6 spread
+        const objectB = {
+            age: 18,
+            gender: 'Male',
+            firstName: 'linh',
+            ...objectA,
+            ...user,
+        };
+        const objectC = Object.assign({ age: 18, gender: 'Male' }, objectA, user) //es5
+
+        console.log('Copy object:', {
+            es6: objectB,
+            es5: objectC,
+        })
+
+        //stringify, parse JSON
+        function updateTask() {
+            //shallow copy
+            //const cloneObjA = { ... objA} //memory B -- task: memory A1
+            // cloneObjA.task.description = 'Learn react'
+
+            // deep copy
+            const parseObj = JSON.parse(JSON.stringify(objectA))
+            parseObj.task.description = 'Learn react';
+            return parseObj;
+        }
+
+        const resultCloneObjA = updateTask();
+        console.log('Update task', resultCloneObjA)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>BT move-list</h2>
+    <script>
+        const columns = ['list-1', 'list-2', 'list-3', 'list-4', 'list-5']
+
+        function stackMoveList(array, sourceIndex, destinationIndex) {
+            const resArray = JSON.parse(JSON.stringify(array)); // deep clone
+            const temp = resArray.splice(sourceIndex, 1)[0]; // get item deleted
+            resArray.splice(destinationIndex, 0, temp);
+            return resArray;
+        }
+
+        const stack1 = stackMoveList(columns, 2, 4);
+        console.log(stack1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>OBJECT METHODS</h2>
+    <script>
+        var dog = {
+            name: ['Bin', 'Beo'],
+            age: 6,
+            weight: 20,
+            bark: function () { },
+            talk: function () {
+                console.log('My name is', this.name);
+            }
+        };
+        // Không được định nghĩa function ngoài object
+        function bark() {
+            console.log('Gau gau, My name is', this.name)
+        }
+        bark();
+        dog.talk()
+    </script>
+</body>
+
+</html>

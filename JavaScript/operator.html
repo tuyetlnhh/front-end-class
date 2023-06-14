@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator</title>
+</head>
+
+<body>
+    <script>
+        // Assigment operator
+        var number = 1;
+        var number2 = 2;
+        number += 10;
+
+        // Comparison operator
+        var numA = '1'; //String
+        var numB = 1; //Number
+        console.log('Comparison ==:', numA == numB) //ep kieu Number('1') de so sanh
+        console.log('Comparison ===:', numA === numB) // so sánh kiểu dữ liệu
+        // Logical operator
+        // logical operator
+        /*
+            && - return true if both expression are true, otherwise it returns false
+            if side left is true, return value side right.
+            if side left is false, return value side left.
+        */
+        // &&
+        const scoreTony = 10;
+        const isGood = scoreTony > 8 && 'Done';
+        console.log('Logical operator', isGood);
+
+        // ||
+        console.log('Logical operator ||', true || 'truong') //lấy cái not false vừa gặp
+        console.log('Logical operator ||', false || 'truong') // false thì tiếp tục xét
+        // ! -> phủ định
+        const scoreTony1 = 10;
+        const isWelldone = scoreTony >= 10
+        console.log('operator', !isWelldone);
+
+        /*
+        The valueOf() method returns the primitive value of a string.
+        The valueOf() method does not change the original string.
+        The valueOf() method can be used to convert a string object into a string.
+
+        let text = new String("Hello World!");
+        let result = text.valueOf();
+      */
+        var text = new String("Hello");
+        var textStr = 'Hello';
+        console.log('Value of before using valueOf', text)
+        console.log('Operator ==', text == textStr) //true
+        console.log('Operator ===', text === textStr) //false
+        console.log('Operator ', text.valueOf() === textStr) //true
+
+        // type convert
+        // convert todoId -> string: todoId.toString()
+        // convert todoId -> number: Number(todoId)
+        // convert todoId -> boolean: Boolean(todoId)
+    </script>
+</body>
+
+</html>

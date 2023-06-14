@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function score(number) {
+            var status = '';
+            // conditional trandition
+            // if(score === 0)  {
+            //     status = 'yeu'
+            // } else if (score >= 1 && score <= 5) {
+            //     status = 'trung binh'
+            // } else if (score >= 6 && score <= 8) {
+            //     status = 'kha'
+            // } else {
+            //     status = 'gioi'
+            // }
+
+            // ternary-operator
+            score === 0 ? status = 'yeu'
+                : score >= 1 && score <= 5 ? status = 'trung binh'
+                    : score >= 6 && score <= 8 ? status = 'kha'
+                        : status = 'gioi'
+        }
+    </script>
+</body>
+
+</html>

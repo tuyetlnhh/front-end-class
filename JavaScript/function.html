@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+
+<body>
+    <h2>HttpReQuest</h2>
+    <script>
+        // Có 3 loại function 
+        // - Bình thường
+        // - Khởi tạo 
+        // - Phương thức (method)
+
+        // This để chỉ đối tượng đang truy cập tới tùy vào ngữ cảnh
+        function HttpRequest(host, port, status) {
+            this.host = host;
+            this.port = port;
+            this.status = status;
+            console.log('this: ', this) //ngữ cảnh trỏ đến đối tượng nào
+        }
+
+        // Add method
+        HttpRequest.prototype.print = function (status) {
+            console.log('Status', status)
+            console.log('Server running at: ' + this.host + ': ' + this.port);
+
+        }
+        HttpRequest.prototype.getStatus = function () {
+            console.log('Get status is: ', this.status)
+        }
+        const httpRequest = new HttpRequest('Localhost', 300, 200); //create instance
+        httpRequest.getStatus();
+        httpRequest.print(200);
+
+        // function declaration
+        // - the name of the function
+        // - hoisting: có thể đc gọi trước khi khởi tạo
+
+        console.log('Function declaration: ', calcReact(2, 4));
+        function calcReact(x, y) {
+            return x * y;
+        }
+
+        // function expression
+        // - no name of the function
+        // - no hoisting: ko được quyền thực thi trước khi khởi tạo (Uncaught TypeError: getTodo is not a fucntion)
+        var getTodo = function (x, y) {
+            return x + y;
+        }
+        console.log('Function expression: ', getTodo(2, 4));
+    </script>
+</body>
+
+</html>

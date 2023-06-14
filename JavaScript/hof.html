@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOF</title>
+</head>
+
+<body>
+    <h2>HOF</h2>
+    <script>
+        // function mà nhận tham số đầu vào là function hoặc return kết quả là một function
+        const animals = [
+            { name: 'pul', species: 'dog' },
+            { name: 'tyra', species: 'cat' },
+            { name: 'ave', species: 'dog' },
+            { name: 'we', species: 'cat' },
+            { name: 'op', species: 'fish' },
+        ]
+
+        const dogs = [];
+        for (const animal of animals) {
+            if (animal.species === 'dog') {
+                dogs.push(animal)
+            }
+            if (animal.species === 'cat') {
+                dogs.push(animal)
+            }
+            if (animal.species === 'fish') {
+                dogs.push(animal)
+            }
+        }
+
+        console.log("dogs: ", dogs)
+
+        // hof 
+        const isDog = (animal) => animal.species === 'dog';
+        const isCat = (animal) => animal.species === 'cat';
+
+        const dogsHOF = animals.filter(animal => isDog);
+        const catsHOF = animals.filter(animal => isCat);
+
+        // bai tap HOF
+        var grades = [
+            { name: 'John', grade: 8, sex: 'M' },
+            { name: 'Sarah', grade: 12, sex: 'F' },
+            { name: 'Bob', grade: 16, sex: 'M' },
+            { name: 'Johnny', grade: 2, sex: 'M' },
+            { name: 'Ethan', grade: 4, sex: 'M' },
+            { name: 'Paula', grade: 18, sex: 'F' },
+            { name: 'Donald', grade: 5, sex: 'M' },
+            { name: 'Jennifer', grade: 13, sex: 'F' },
+            { name: 'Courtney', grade: 15, sex: 'F' },
+            { name: 'Jane', grade: 9, sex: 'F' }
+        ]
+
+        const isMale = grade => grade.sex === 'M';
+        const isFemale = grade => grade.sex === 'F';
+        const males = grades.filter(isMale);
+        const females = grades.filter(isFemale);
+
+        const average = grades => {
+            return grades.reduce((acc, currItem) => {
+                return acc + currItem.grade
+            }, 0) / grades.length
+        }
+
+        const maxAverage = grades => {
+            return Math.max(...grades.map(student => student.grade))
+        }
+
+        const getAverageMales = average(males)
+        const getAverageFemale = average(females)
+        const getAverageAll = average(grades)
+        const getMaxAverageMales = maxAverage(males)
+        console.log({ getAverageMales, getAverageFemale, getAverageAll, getMaxAverageMales })
+    </script>
+</body>
+
+</html>

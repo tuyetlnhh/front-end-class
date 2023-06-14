@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2 id='name'></h2>
+  <script>
+    const data = {
+      name: 'truong',
+      age: 18
+    }
+    const numbs = [1, 2, 3, 4, 5, 6]
+
+    /*
+      case 1: BE require body data = {}
+      case 2: BE require body data = json string
+    */
+
+    const bodyDataObj = data;
+
+    /*
+      stringify method (when FE send data on BE)
+        - When sending data to a web server, the data has to be a string.
+        - Convert a JavaScript object into a string with JSON.stringify().
+
+      parse method ( when FE receive data from BE)
+       - When receiving data from a web server, the data is always a string.
+       - Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+    */
+
+    const bodyDataJSONStringify = JSON.stringify(bodyDataObj);
+    console.log('JSON.stringify: ', { bodyDataObj, bodyDataJSONStringify })
+
+    const convertToObject = JSON.parse(bodyDataJSONStringify)
+    console.log('JSON.parse: ', convertToObject);
+
+    // show UI
+    document.getElementById('name').innerHTML = convertToObject.name
+  </script>
+</body>
+
+</html>

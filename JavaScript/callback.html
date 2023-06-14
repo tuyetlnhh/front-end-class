@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function doHomework(subject, callback) {
+            if (typeof callback !== 'function') {
+                console.log('Vui long nhap lai')
+                return; //return early
+            }
+            //console.log('Starting my ' +subject + 'homework'); es5
+            console.log(`Starting my ${subject}' homework`); //template string
+            callback();
+        }
+
+        doHomework('math', function () {
+            console.log('Finished')
+        })
+    </script>
+</body>
+
+</html>

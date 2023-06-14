@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const id = 10; //from BE
+        const p1 = new Promise((resovle, reject) => {
+            //code logic
+            if (!id) {
+                reject('no id');
+                return;
+            }
+            resovle(id);
+        })
+
+        p1
+            .then(data => {
+                console.log('p1 succcess: ', data)
+            })
+            .catch(error => {
+                console.log('p1 error: ', error)
+                // show error for UI 
+            })
+        function fakeApi(url, option = {}) {
+            return new Promise((resovle, reject) => {
+                setTimeout(() => {
+                    fetch(url, option)
+                        .then(response => response.json())
+                        .then(data => resovle(data))
+                        .catch(err => reject(err))
+                }, 2000)
+            })
+        }
+        const issue = document.getElementById("issue")
+        fakeApi('https://jsonplaceholder.typicode.com/todos?_limit=5&_page=1', {
+            method: 'GET'
+        }).then(data => {
+            issue.innerHTML = `
+                <p class="id p-1">Title: ${data[0].title}</p>
+            `
+        })
+        // chaining promise
+        const p2 = Promise.resolve(5)
+            .then(res => res * 2)
+            .then(res => res * 4)
+            .then(res => res * 6);
+        const p3 = Promise.reject('error')
+
+        console.log('p2: ', p2);
+        console.log('p3: ', p3)
+    </script>
+</body>
+
+</html>
